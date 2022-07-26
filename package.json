@@ -1,0 +1,22 @@
+{
+  "name": "litt",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gaya/litt.git"
+  },
+  "keywords": [],
+  "author": "Gaya Kessler",
+  "bugs": {
+    "url": "https://github.com/Gaya/litt/issues"
+  },
+  "homepage": "https://litt.bio",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
