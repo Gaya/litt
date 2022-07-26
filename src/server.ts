@@ -1,5 +1,8 @@
 import path from 'path';
 import express, { RequestHandler } from 'express';
+import { renderFile } from 'ejs';
+
+import registerRoutes from './routes';
 
 const app = express();
 
@@ -18,14 +21,18 @@ const serveStatic: RequestHandler = (req, res, next) => {
 };
 
 const handleNotFound: RequestHandler = (req, res) => {
-  res.status(404)
-    .sendFile(path.join(__dirname, '../static/404.html'));
+  res.status(404).render('404');
 };
 
+app.engine('ejs', renderFile);
+app.set('view engine', 'ejs');
+
 app.get('/check', appCheck);
+
 app.use(serveStatic);
+
+registerRoutes(app);
+
 app.use(handleNotFound);
 
-app.listen(PORT, () => {
-  console.log(`Litt is a go on port ${PORT}`);
-});
+app.listen(PORT, () => console.info(`Litt.bio is a go on port ${PORT}`));
