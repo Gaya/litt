@@ -9,7 +9,7 @@ app.get('/check', (req, res) => {
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
-  console.log(req);
+  console.log(req.host);
 });
 
 app.listen(port, () => {
